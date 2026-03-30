@@ -18,17 +18,14 @@ const ProductPage = ({ params }: { params: Promise<{ details: string }> }) => {
     setOpenSection(openSection === section ? null : section);
   };
 
-  // Sirf wahi images lega jo data mein hain (No extra empty boxes)
   const productImageList = (product as any).images || [product.img];
 
   return (
     <div className="min-h-screen bg-white pb-20 font-sans antialiased text-[#1d1d1f]">
       <div className="max-w-[1550px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-start mt-[75px] px-6 md:px-12 lg:px-20">
         
-        {/* LEFT SIDE: DYNAMIC IMAGES GRID (Jitni image utne box) */}
         <div className="md:col-span-8 flex flex-col gap-4 order-1 md:order-none">
           
-          {/* Pehli 2 Images (Badi Height) */}
           <div className="grid grid-cols-2 gap-4">
             {productImageList.slice(0, 2).map((url: string, i: number) => (
               <div key={i} className="relative aspect-[2/3.8] bg-[#f5f5f7] overflow-hidden border border-gray-100">
@@ -37,12 +34,11 @@ const ProductPage = ({ params }: { params: Promise<{ details: string }> }) => {
             ))}
           </div>
 
-          {/* Baaki ki Images (Agar 2 se zyada hain toh hi grid banega) */}
           {productImageList.length > 2 && (
             <div className="grid grid-cols-2 gap-4">
               {productImageList.slice(2).map((url: string, i: number) => (
                 <div key={i + 2} className="relative aspect-[2/2.8] bg-[#f5f5f7] overflow-hidden border border-gray-100">
-                  <Image src={url} alt="Detail" fill className="object-cover object-top" unoptimized />
+                  <Image src={url} alt="Details" fill className="object-cover object-top" unoptimized />
                 </div>
               ))}
             </div>

@@ -1,8 +1,16 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    domains: ["www.nalli.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.nalli.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'flagcdn.com', // YE WALI LINE ADD KARNI HAI
+      },
+    ],
   },
 };
 
